@@ -1,198 +1,3 @@
-// import React, {useEffect, useState} from 'react';
-// import {
-//   View,
-//   Text,
-//   FlatList,
-//   Image,
-//   TouchableOpacity,
-//   Animated,
-// } from 'react-native';
-// import {carsData, colorType} from '../../utils/data';
-// import {ColorConstants} from '../../constants/ColorConstatnts';
-// import {dynamicSize, normalizeFont} from '../../utils/responsive';
-// import {ImageConstant} from '../../constants/ImageConstants';
-// import BackButton from '../../components/backButton';
-
-// const HomeScreen = () => {
-//   const [list, setList] = useState(true);
-//   const [detailScreen, setDetailsScreen] = useState(false);
-//   const [data, setData] = useState('');
-//   const [selectedItem, setSelectedItem] = useState(null); // Store the selected item
-//   const [imageAnimation] = useState(new Animated.Value(0));
-//   const imageScale = imageAnimation.interpolate({
-//     inputRange: [0, 1],
-//     outputRange: [1, 1.2],
-//   });
-
-//   useEffect(() => {
-//     if (detailScreen) {
-//       Animated.timing(imageAnimation, {
-//         toValue: 1,
-//         duration: 300,
-//         useNativeDriver: false, // Set to false for non-native animations
-//       }).start();
-//     } else {
-//       // Reset the image animation when leaving the detail screen
-//       imageAnimation.setValue(0);
-//     }
-//   }, [detailScreen]);
-
-//   const renderItem = ({ item }) => {
-//     const handleTouch = () => {
-//       setData(item);
-//       setSelectedItem(item); // Set the selected item
-//       setList(false);
-//       setDetailsScreen(true);
-//     };
-
-//     return (
-//       <View style={{ marginTop: 15 }}>
-//         <TouchableOpacity onPress={handleTouch}>
-//           <View
-//             style={{
-//               backgroundColor: ColorConstants.LIST_BACKGROUND,
-//               height: dynamicSize(90),
-//               borderRadius: dynamicSize(10),
-//               flexDirection: 'row',
-//               paddingVertical: dynamicSize(5),
-//               paddingLeft: dynamicSize(10),
-//               justifyContent: 'space-between',
-//               alignItems: 'center',
-//             }}>
-//             <View style={{ width: dynamicSize(170) }}>
-//               <Text
-//                 style={{
-//                   fontSize: normalizeFont(20),
-//                   fontWeight: '700',
-//                   color: '#000000',
-//                 }}>
-//                 {item.name}
-//               </Text>
-//               <Text
-//                 style={{
-//                   fontSize: normalizeFont(16),
-//                   fontWeight: '700',
-//                   color: '#000000',
-//                 }}>
-//                 {item.des}
-//               </Text>
-//             </View>
-//             <Image
-//               style={{
-//                 height: dynamicSize(90),
-//                 width: dynamicSize(220),
-//                 left: dynamicSize(30),
-//               }}
-//               source={item.image}
-//             />
-//           </View>
-//         </TouchableOpacity>
-//       </View>
-//     );
-//   };
-
-//   return (
-//     <View style={{flex: 1, paddingHorizontal: 15}}>
-//       {list && (
-//         <View>
-//           <BackButton />
-//           <FlatList
-//             data={carsData}
-//             renderItem={renderItem}
-//             keyExtractor={item => item.id}
-//             showsVerticalScrollIndicator={false}
-//           />
-//         </View>
-//       )}
-//       {detailScreen && (
-//          <View style={{ marginVertical: dynamicSize(10) }}>
-//          <View
-//            style={{
-//              flexDirection: 'row',
-//              justifyContent: 'space-between',
-//              alignItems: 'center',
-//              paddingVertical: dynamicSize(5),
-//            }}>
-//            <View>
-//              <Text
-//                style={{
-//                  fontSize: normalizeFont(20),
-//                  fontWeight: '700',
-//                  color: '#000000',
-//                }}>
-//                {data.name}
-//              </Text>
-//              <Text
-//                style={{
-//                  fontSize: normalizeFont(16),
-//                  fontWeight: '700',
-//                  color: '#000000',
-//                }}>
-//                {data.des}
-//              </Text>
-//            </View>
-//            <TouchableOpacity
-//              onPress={() => {
-//                setList(true);
-//                setDetailsScreen(false);
-//              }}
-//              style={{ alignSelf: 'flex-end' }}>
-//              <Image source={ImageConstant.CLOSE} />
-//            </TouchableOpacity>
-//          </View>
-//          <Animated.Image
-//            style={{
-//              height: dynamicSize(200),
-//              width: dynamicSize(500),
-//              left: dynamicSize(50),
-//              marginTop: dynamicSize(50),
-//              transform: [{ scale: imageScale }],
-//            }}
-//            source={selectedItem?.image} // Use the selected item's image
-//          />
-//           <View style={{flexDirection: 'row', marginTop: dynamicSize(50)}}>
-//             {colorType.map(item => (
-//               <View style={{marginLeft: dynamicSize(15)}}>
-//                 <View
-//                   style={[
-//                     {
-//                       height: dynamicSize(50),
-//                       width: dynamicSize(50),
-//                       borderRadius: dynamicSize(8),
-//                     },
-//                     {backgroundColor: item.color},
-//                   ]}
-//                 />
-//               </View>
-//             ))}
-//           </View>
-//           <View
-//             style={{
-//               flexDirection: 'row',
-//               alignItems: 'center',
-//               justifyContent: 'space-between',
-//               marginTop: dynamicSize(40),
-//             }}>
-//             <Text
-//               style={{
-//                 fontSize: normalizeFont(18),
-//                 color: ColorConstants.BLACK,
-//                 fontWeight: '600',
-//               }}>
-//               Get a free service
-//             </Text>
-//             <TouchableOpacity>
-//               <Image source={ImageConstant.FORWORD} />
-//             </TouchableOpacity>
-//           </View>
-//         </View>
-//       )}
-//     </View>
-//   );
-// };
-
-// export default HomeScreen;
-
 import React, {Component, useEffect, useRef, useState} from 'react';
 import {
   Animated,
@@ -210,13 +15,78 @@ import {
   UIManager,
   View,
 } from 'react-native';
-import { carsData } from '../../utils/data';
-import { dynamicSize } from '../../utils/responsive';
-import { ImageConstant } from '../../constants/ImageConstants';
+import {ImageConstant} from '../constants/ImageConstants';
+import {dynamicSize} from '../utils/responsive';
 const {width, height} = Dimensions.get('screen');
 
+let data = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 
-export default function HomeScreen() {
+export const carsData = [
+  {
+    id: 1,
+    name: 'Jetta',
+    image: ImageConstant.CAR1,
+    des: 'The Compact Sedan',
+  },
+  {
+    id: 2,
+    name: 'Jetta CLI',
+    image: ImageConstant.CAR2,
+    des: 'The Performance Sedan',
+  },
+  {
+    id: 3,
+    name: 'Passat',
+    image: ImageConstant.CAR3,
+    des: 'The Midsize Sedan',
+  },
+  {
+    id: 4,
+    name: 'Arteon',
+    image: ImageConstant.CAR1,
+    des: 'The Performance Sedan',
+  },
+  {
+    id: 5,
+    name: 'Ferrari',
+    image: ImageConstant.CAR2,
+    des: 'The Sport Car',
+  },
+  {
+    id: 6,
+    name: 'Lamborghini',
+    image: ImageConstant.CAR3,
+    des: 'The Sport Car',
+  },
+  {
+    id: 7,
+    name: 'Arteon',
+    image: ImageConstant.CAR1,
+    des: 'The Performance Sedan',
+  },
+  {
+    id: 8,
+    name: 'Ferrari',
+    image: ImageConstant.CAR2,
+    des: 'The Sport Car',
+  },
+  {
+    id: 9,
+    name: 'Lamborghini',
+    image: ImageConstant.CAR3,
+    des: 'The Sport Car',
+  },
+];
+
+// if (Platform.OS === 'android') {
+//     if (UIManager.setLayoutAnimationEnabledExperimental) {
+//         UIManager.setLayoutAnimationEnabledExperimental(true);
+//     }
+// }
+
+export default function ItemPopup1() {
   const [layoutData, setData] = useState(null);
 
   console.log(layoutData);
@@ -225,7 +95,7 @@ export default function HomeScreen() {
       <FlatList
         data={carsData} // Use carsData as the data source
         contentContainerStyle={{paddingVertical: 20}}
-        keyExtractor={item => item.id.toString()} // Assuming 'id' is a unique identifier
+        keyExtractor={item => item.toString()} // Assuming 'id' is a unique identifier
         renderItem={({item}) => (
           <RenderItem item={item} toggleModal={data => setData(data)} />
         )}
@@ -463,4 +333,3 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
 });
-
