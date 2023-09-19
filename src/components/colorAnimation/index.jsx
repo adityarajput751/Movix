@@ -1,10 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {
-  Animated,
-  View,
-} from 'react-native';
+import {Animated, View} from 'react-native';
 import {colorType} from '../../utils/data';
-import { styles } from './style';
+import {styles} from './style';
 
 const ColorAnimation = () => {
   const translateX = useRef(new Animated.Value(0)).current;
@@ -28,11 +25,14 @@ const ColorAnimation = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <Animated.View style={[styles.animatedView, {transform: [{translateX}]}]}>
         <View style={styles.colorMainContainer}>
           {colorType.map(item => (
-            <View key={item.id} style={[styles.color, {backgroundColor: item.color}]} />
+            <View
+              key={item.id}
+              style={[styles.color, {backgroundColor: item.color}]}
+            />
           ))}
         </View>
       </Animated.View>

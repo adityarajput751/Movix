@@ -7,5 +7,5 @@ export const ColorConstants = {
     COLOR4: "#4CBC3C",
     COLOR5: "#F3FA04",
     COLOR6: "#000000",
-
+    WHITE: '#ffffff'
 }

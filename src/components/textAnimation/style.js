@@ -1,21 +1,25 @@
 import {StyleSheet} from 'react-native';
-import { dynamicSize, normalizeFont } from '../../utils/responsive';
-import { ColorConstants } from '../../constants/ColorConstatnts';
+import {dynamicSize, normalizeFont} from '../../utils/responsive';
+import {ColorConstants} from '../../constants/ColorConstatnts';
+import {
+  AlignmentConstants,
+  NumberConstant,
+} from '../../constants/NumberConstants';
 
 export const styles = StyleSheet.create({
   container: {
-    marginTop: dynamicSize(30),
+    marginTop: dynamicSize(NumberConstant.VALUE_30),
   },
   animatedContainer: {
-    alignSelf: 'flex-end',
-    left: dynamicSize(670),
-    flexDirection: 'row',
-    width: dynamicSize(330),
-    justifyContent: 'space-between',
+    alignSelf: AlignmentConstants.FLEX_END,
+    left: dynamicSize(NumberConstant.VALUE_670),
+    flexDirection: AlignmentConstants.ROW,
+    width: dynamicSize(NumberConstant.VALUE_330),
+    justifyContent: AlignmentConstants.SPACE_BETWEEN,
   },
   text: {
-    fontSize: normalizeFont(20),
+    fontSize: normalizeFont(NumberConstant.VALUE_20),
     color: ColorConstants.BLACK,
-    fontWeight: '700',
+    fontWeight: NumberConstant.VALUE_STRING_700,
   },
 });

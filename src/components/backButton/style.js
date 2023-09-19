@@ -1,19 +1,26 @@
-import { StyleSheet } from "react-native";
-import { dynamicSize, normalizeFont } from "../../utils/responsive";
-import { ColorConstants } from "../../constants/ColorConstatnts";
+import {StyleSheet} from 'react-native';
+import {dynamicSize, normalizeFont} from '../../utils/responsive';
+import {ColorConstants} from '../../constants/ColorConstatnts';
+import {
+  AlignmentConstants,
+  NumberConstant,
+} from '../../constants/NumberConstants';
 
 export const styles = StyleSheet.create({
-    container: {marginTop: dynamicSize(10)},
-    imageContainer: {flexDirection: 'row', alignItems: 'center'},
-    image: {
-        height: dynamicSize(25),
-        width: dynamicSize(35),
-        tintColor: ColorConstants.BLACK,
-      },
-      text: {
-        fontSize: normalizeFont(18),
-        color: ColorConstants.BLACK,
-        fontWeight: '700',
-        marginLeft: dynamicSize(5),
-      }
-})
+  container: {marginTop: dynamicSize(NumberConstant.VALUE_10)},
+  imageContainer: {
+    flexDirection: AlignmentConstants.ROW,
+    alignItems: AlignmentConstants.CENTER,
+  },
+  image: {
+    height: dynamicSize(NumberConstant.VALUE_25),
+    width: dynamicSize(NumberConstant.VALUE_35),
+    tintColor: ColorConstants.BLACK,
+  },
+  text: {
+    fontSize: normalizeFont(NumberConstant.VALUE_18),
+    color: ColorConstants.BLACK,
+    fontWeight: NumberConstant.VALUE_STRING_700,
+    marginLeft: dynamicSize(NumberConstant.VALUE_5),
+  },
+});

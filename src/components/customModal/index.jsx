@@ -13,7 +13,7 @@ import {
 import {ImageConstant} from '../../constants/ImageConstants';
 import ColorAnimation from '../colorAnimation';
 import TextAnimation from '../textAnimation';
-import { styles } from './style';
+import {styles} from './style';
 
 const {height} = Dimensions.get('screen');
 
@@ -68,11 +68,13 @@ const CustomModal = ({layoutData, onClose, onRequestClose}) => {
                   styles.animatedContainerWithoutExoanded,
                   {height: _height, width: _width, left: x, top: y},
                 ],
-            [styles.animatedContainer,{transform: animation.getTranslateTransform(),}]
+            [
+              styles.animatedContainer,
+              {transform: animation.getTranslateTransform()},
+            ],
           ]}>
           {expanded && (
-            <View
-              style={styles.mainContainer}>
+            <View style={styles.mainContainer}>
               <View style={styles.textContainer}>
                 <Text style={styles.title}>{itemData.name}</Text>
                 <Text style={styles.description}>{itemData.des}</Text>

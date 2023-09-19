@@ -7,12 +7,10 @@ const TextAnimation = ({title}) => {
   const translateX = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Add a one-second delay before triggering the animation.
     const animationTimeout = setTimeout(() => {
       animate();
     }, 1000);
 
-    // Clear the timeout to prevent any memory leaks.
     return () => {
       clearTimeout(animationTimeout);
     };

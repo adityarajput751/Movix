@@ -1,16 +1,20 @@
-const { StyleSheet } = require("react-native");
-const { dynamicSize } = require("../../utils/responsive");
+import {
+  AlignmentConstants,
+  NumberConstant,
+} from '../../constants/NumberConstants';
+const {StyleSheet} = require('react-native');
+const {dynamicSize} = require('../../utils/responsive');
 
 export const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#fff',
-    },
-    animatedView: {alignSelf: 'flex-end', left: dynamicSize(770)},
-    colorMainContainer: {flexDirection: 'row'},
-    color: {
-      height: dynamicSize(50),
-      width: dynamicSize(50),
-      marginLeft: dynamicSize(15),
-      borderRadius: dynamicSize(8),
-    },
-  });
+  animatedView: {
+    alignSelf: AlignmentConstants.FLEX_END,
+    left: dynamicSize(NumberConstant.VALUE_770),
+  },
+  colorMainContainer: {flexDirection: AlignmentConstants.ROW},
+  color: {
+    height: dynamicSize(NumberConstant.VALUE_50),
+    width: dynamicSize(NumberConstant.VALUE_50),
+    marginLeft: dynamicSize(NumberConstant.VALUE_15),
+    borderRadius: dynamicSize(NumberConstant.VALUE_8),
+  },
+});
