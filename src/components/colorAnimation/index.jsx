@@ -32,7 +32,7 @@ const ColorAnimation = () => {
       <Animated.View style={[styles.animatedView, {transform: [{translateX}]}]}>
         <View style={styles.colorMainContainer}>
           {colorType.map(item => (
-            <View style={[styles.color, {backgroundColor: item.color}]} />
+            <View key={item.id} style={[styles.color, {backgroundColor: item.color}]} />
           ))}
         </View>
       </Animated.View>

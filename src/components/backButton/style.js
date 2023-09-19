@@ -3,7 +3,7 @@ import { dynamicSize, normalizeFont } from "../../utils/responsive";
 import { ColorConstants } from "../../constants/ColorConstatnts";
 
 export const styles = StyleSheet.create({
-    container: {marginVertical: dynamicSize(10)},
+    container: {marginTop: dynamicSize(10)},
     imageContainer: {flexDirection: 'row', alignItems: 'center'},
     image: {
         height: dynamicSize(25),

@@ -1,6 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Image, StyleSheet, Text, View} from 'react-native';
 import {ImageConstant} from '../../constants/ImageConstants';
+import { styles } from './style';
 
 const TextAnimation = ({title}) => {
   const translateX = useRef(new Animated.Value(0)).current;
@@ -28,21 +29,11 @@ const TextAnimation = ({title}) => {
     <View style={styles.container}>
       <Animated.View
         style={[
-          {
-            alignSelf: 'flex-end',
-            left: 700,
-            flexDirection: 'row',
-            width: 340,
-            justifyContent: "space-between"
-          },
+          styles.animatedContainer,
           {transform: [{translateX}]},
         ]}>
         <Text
-          style={{
-            fontSize: 20, // You can set your own font size here.
-            color: '#000000',
-            fontWeight: '700',
-          }}>
+          style={styles.text}>
           {title}
         </Text>
         <Image source={ImageConstant.FORWORD} />
@@ -52,10 +43,3 @@ const TextAnimation = ({title}) => {
 };
 
 export default TextAnimation;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    marginTop: 20,
-  },
-});
