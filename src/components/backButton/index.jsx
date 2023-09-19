@@ -1,28 +1,19 @@
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import {dynamicSize, normalizeFont} from '../../utils/responsive';
 import {ImageConstant} from '../../constants/ImageConstants';
+import { styles } from './style';
 
 const BackButton = ({onPress}) => {
   return (
-    <View style={{marginVertical: dynamicSize(10)}}>
+    <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View style={styles.imageContainer}>
           <Image
-            style={{
-              height: dynamicSize(25),
-              width: dynamicSize(35),
-              tintColor: '#000000',
-            }}
+            style={styles.image}
             source={ImageConstant.BACK}
           />
           <Text
-            style={{
-              fontSize: normalizeFont(18),
-              color: '#000000',
-              fontWeight: '700',
-              marginLeft: dynamicSize(5),
-            }}>
+            style={styles.text}>
             List
           </Text>
         </View>

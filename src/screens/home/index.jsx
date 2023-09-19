@@ -210,11 +210,12 @@ import {
   UIManager,
   View,
 } from 'react-native';
-import { carsData } from '../../utils/data';
-import { dynamicSize } from '../../utils/responsive';
-import { ImageConstant } from '../../constants/ImageConstants';
+import {carsData} from '../../utils/data';
+import {dynamicSize} from '../../utils/responsive';
+import {ImageConstant} from '../../constants/ImageConstants';
+import TextAnimation from '../../components/textAnimation/TextANimation';
+import ColorAnimation from '../../components/colorAnimation';
 const {width, height} = Dimensions.get('screen');
-
 
 export default function HomeScreen() {
   const [layoutData, setData] = useState(null);
@@ -230,6 +231,7 @@ export default function HomeScreen() {
           <RenderItem item={item} toggleModal={data => setData(data)} />
         )}
         numColumns={1}
+        showsVerticalScrollIndicator={false}
       />
       {layoutData !== null && (
         <ModalView layoutData={layoutData} close={() => setData(null)} />
@@ -360,9 +362,9 @@ function ModalView({layoutData, close}) {
             resizeMode="cover"
             style={{height: 250, width: 600, left: 180}}
           />
-          {expanded && (
-            <Text style={styles.label}>Swipe up or down to dismiss</Text>
-          )}
+          <ColorAnimation />
+          <TextAnimation title={'Get a free service'} />
+          <TextAnimation title={'Save 10% and buy'} />
         </Animated.View>
       </View>
     </Modal>
@@ -437,7 +439,6 @@ const styles = StyleSheet.create({
     height: 120,
     flex: 1,
     padding: 3,
-    backgroundColor: '#ffffff',
     marginTop: 10,
   },
   close: {
@@ -454,8 +455,8 @@ const styles = StyleSheet.create({
     height: 90,
     width: 220,
     left: 50,
-    justifyContent: 'center',
-    // position: 'absolute',
+    position: 'absolute',
+    left: 200
   },
   label: {
     color: '#fff',
@@ -463,4 +464,3 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
 });
-
